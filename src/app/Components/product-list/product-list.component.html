@@ -1,0 +1,45 @@
+
+
+
+
+<div class="row ">
+
+@for(product of productsAfterFilter;track product.id){
+<div id="list" class="col-sm-4 mb-4 text-center" >
+<img id="img" [src]="product.prdImgURL" class="img-fluid mb-2 " width="150px " ImgStyle (click)="goToDetails(product)" >
+
+<h3 class="h3-s" [ngClass]="{'text-danger':product.quantity==0,'bg-warning':product.quantity<5} ">{{product.name}}</h3>
+<h3 [ngStyle]="{'text-decoration': 'line-through'}">{{product.price|currency:'USD':'symbol'}}</h3>
+<h3 class="h3-s" >{{product.price |calcDiscount:50|currency:'USD':'symbol' }}</h3>
+
+<button   class="btn btn-danger" [disabled]="product.quantity==0" (click)="addToCart(product)" >Add To Cart<i class="fa-solid fa-cart-shopping"></i></button>
+
+
+<h5 class="mt-4">
+
+  @if (product.quantity ==2) {
+    <h4>2 items left</h4>
+  }
+  @else if(product.quantity ==3) {
+    <h5 class="text-danger mt-2">3 items left</h5>
+  }
+  @else if (product.quantity >=4) {
+    <h6 class="text-success mt-2">In stock</h6>
+  }
+  @else if(product.quantity ==0) {
+    <h5 class="text-danger mt-2">Out of stock</h5>
+  }
+
+</h5>
+</div>
+
+}
+
+@empty {
+  <h3>product not found</h3>
+}
+
+</div>
+
+
+

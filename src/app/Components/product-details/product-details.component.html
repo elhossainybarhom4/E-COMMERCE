@@ -1,0 +1,61 @@
+
+  <div class="row mb-4">
+    <div class="col-sm-6">
+      <h4>
+        @switch (product?.quantity) {
+      @case (0) {
+        Out of Stock!
+      }
+
+
+      @case (1) {
+        Only One Left!
+      }
+      @case (2) {
+        Only Two Left!
+      }
+      @case (3) {
+
+      }
+      @default {
+        In Stock
+      }
+
+
+
+        }
+      </h4>
+      <img
+        [src]="product?.prdImgURL"
+        alt=""
+        class="img-fluid"
+        style="height: 400px"
+      />
+
+
+    </div>
+    <div class="col-sm-6">
+
+      <h3> name:{{ product?.name }}</h3>
+      <h3>price: {{ product?.price }}</h3>
+      <h4>quantity: {{ product?.quantity }}</h4>
+
+
+    </div>
+  </div>
+  <button class="button-91" [routerLink]="['/Home']" >Back</button>
+
+
+  <div
+    class="d-flex justify-content-center"
+    role="group"
+    aria-label="Basic example"
+  >
+  <button class="border-0" (click)="prevFunc()" [disabled]="prdID==IDsList[0]">
+    <i class="fa-solid fa-angles-left"></i>
+  </button>
+    <button class="border-0" (click)="nextFunc()" [disabled]="prdID==IDsList[IDsList.length-1]">
+      <i class="fa-solid fa-angles-right"></i>
+    </button>
+
+  </div>

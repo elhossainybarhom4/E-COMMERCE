@@ -1,0 +1,22 @@
+.list-inline {
+  padding-right: 0;
+}
+h2 {
+  text-align: right;
+}
+.category a {
+  color: rgb(65, 56, 56);
+}
+.reverse-order {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.category {
+  margin-top: 1rem;
+}
+.custom-line-height {
+  line-height: 30px;
+}
+.custom-color {
+  color: black;
+}
